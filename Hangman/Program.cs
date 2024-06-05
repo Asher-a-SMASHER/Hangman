@@ -1,4 +1,10 @@
-﻿string[] Dictionary = null;
+﻿
+// TODO show distinct letters.
+// TODO Repeat function.
+// TODO Only print score at the end of a game.
+// TODO Show how many guesses are left.
+
+string[] Dictionary = null;
 Random random = new Random();
 List<char> ArrayOfGuesses = new List<char>();
 int AmountOfIncorrectGuesses = 0;
@@ -67,7 +73,7 @@ do
     Console.WriteLine("Please enter your guess.");
     AddBlankSpaces(KnownChars);
 
-    while (KnownChars != WordFromDictionaryArray)
+    while (!IsSameWord(KnownChars,WordFromDictionaryArray)  &&  AmountOfIncorrectGuesses <= 10)
     {
         Console.WriteLine();
         string PlayersGuess = Console.ReadLine();
@@ -128,15 +134,12 @@ do
             Console.WriteLine(Score);
         }
     }
-    // TODO show distinct letters.
-    // TODO Repeat function.
-    // TODO Only print score at the end of a game.
-    // TODO Show how many guesses are left.
 
     Console.WriteLine("Would you like to play again?");
     Console.WriteLine("PLEEZ PLAY AGEN");
     Console.WriteLine("If yes, type 'p'");
     RepeatOrNot = Console.ReadLine()!;
+    Console.Clear();
 
 } while (RepeatOrNot is "P" or "p");
 
@@ -494,4 +497,9 @@ static void AddBlankSpaces(IEnumerable<char> BlankSpaces)
     }
     Console.WriteLine();
     Console.WriteLine();
+}
+
+static bool IsSameWord(char[] input, char[] newArr)
+{
+    return new String(input) == new String(newArr);
 }
