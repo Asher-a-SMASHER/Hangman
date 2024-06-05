@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnagramQuizzer", "Anagram Quizzer\AnagramQuizzer.csproj", "{15DDD46E-B55B-462D-B148-EC4E19EEDBD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangman", "Hangman\Hangman.csproj", "{4FC5A763-4B72-4890-85C9-8DA09EC32CB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionaries", "Dictionaries\Dictionaries.csproj", "{59AFD863-3FD4-4698-9309-19C46123A47E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15DDD46E-B55B-462D-B148-EC4E19EEDBD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15DDD46E-B55B-462D-B148-EC4E19EEDBD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15DDD46E-B55B-462D-B148-EC4E19EEDBD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15DDD46E-B55B-462D-B148-EC4E19EEDBD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FC5A763-4B72-4890-85C9-8DA09EC32CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC5A763-4B72-4890-85C9-8DA09EC32CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC5A763-4B72-4890-85C9-8DA09EC32CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC5A763-4B72-4890-85C9-8DA09EC32CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59AFD863-3FD4-4698-9309-19C46123A47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59AFD863-3FD4-4698-9309-19C46123A47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59AFD863-3FD4-4698-9309-19C46123A47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59AFD863-3FD4-4698-9309-19C46123A47E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B541072-304B-4B0E-936C-1692C32F5A65}
+	EndGlobalSection
+EndGlobal
