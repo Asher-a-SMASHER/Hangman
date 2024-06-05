@@ -128,6 +128,10 @@ do
             Console.WriteLine(Score);
         }
     }
+    // TODO show distinct letters.
+    // TODO Repeat function.
+    // TODO Only print score at the end of a game.
+    // TODO Show how many guesses are left.
 
     Console.WriteLine("Would you like to play again?");
     Console.WriteLine("PLEEZ PLAY AGEN");
