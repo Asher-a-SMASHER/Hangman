@@ -1,8 +1,6 @@
-﻿
-// TODO show distinct letters.
-// TODO Repeat function.
-// TODO Only print score at the end of a game.
+﻿// TODO show distinct letters.
 // TODO Show how many guesses are left.
+// TODO Further improve dictionary
 
 string[] Dictionary = null;
 Random random = new Random();
@@ -123,17 +121,23 @@ do
                 DisplayHangman(AmountOfIncorrectGuesses);
             }
 
+            Console.Write("You have ");
+            Console.Write(10 - AmountOfIncorrectGuesses);
+            Console.WriteLine(" guesses left:");
+
             if (AmountOfIncorrectGuesses == 10)
             {
                 Console.Write("Your word was '");
                 Console.Write(WordFromDictionary);
                 Console.WriteLine(".'");
+                Score--;
             }
-            Console.WriteLine();
-            Console.Write("Your current score is ");
-            Console.WriteLine(Score);
         }
     }
+
+    Console.WriteLine();
+    Console.Write("Your current score is ");
+    Console.WriteLine(Score);
 
     Console.WriteLine("Would you like to play again?");
     Console.WriteLine("PLEEZ PLAY AGEN");
