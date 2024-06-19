@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-﻿// TODO Show how many guesses are left.
-=======
-﻿// TODO show distinct letters.
->>>>>>> Stashed changes
+// TODO show distinct letters.
 // TODO Further improve dictionary
 
 string[] Dictionary = null;
@@ -124,16 +120,16 @@ do
                 DisplayHangman(AmountOfIncorrectGuesses);
             }
 
-            Console.Write("You have ");
-            Console.Write(10 - AmountOfIncorrectGuesses);
-            Console.WriteLine(" guesses left:");
-
             if (AmountOfIncorrectGuesses == 10)
             {
                 Console.Write("Your word was '");
                 Console.Write(WordFromDictionary);
                 Console.WriteLine(".'");
                 Score--;
+            }
+            else
+            {
+                Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guesses left.");
             }
         }
 
