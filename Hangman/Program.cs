@@ -1,5 +1,4 @@
-﻿// TODO show distinct letters.
-// TODO Show how many guesses are left.
+﻿// TODO Show how many guesses are left.
 // TODO Further improve dictionary
 
 string[] Dictionary = null;
