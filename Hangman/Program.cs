@@ -1,5 +1,8 @@
 // TODO show distinct letters.
 // TODO Further improve dictionary
+// TODO Remove gap between Your word was & CRUNCH
+// TODO When only 1 guess is left print Guess not Guesses
+// TODO Remove -1
 
 string[] Dictionary = null;
 Random random = new Random();
@@ -70,7 +73,7 @@ do
     Console.WriteLine("Please enter your guess.");
     AddBlankSpaces(KnownChars);
 
-    while (!IsSameWord(KnownChars, WordFromDictionaryArray) && AmountOfIncorrectGuesses <= 10)
+    while (!IsSameWord(KnownChars, WordFromDictionaryArray) && AmountOfIncorrectGuesses < 10)
     {
         Console.WriteLine();
         string PlayersGuess = Console.ReadLine();
@@ -120,25 +123,17 @@ do
                 DisplayHangman(AmountOfIncorrectGuesses);
             }
 
-            if (AmountOfIncorrectGuesses == 10)
-            {
-                Console.Write("Your word was '");
-                Console.Write(WordFromDictionary);
-                Console.WriteLine(".'");
-                Score--;
-            }
-            else
-            {
-                Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guesses left.");
-            }
-        }
+            Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guesses left.");
 
+        }
         else
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("You can only enter one letter at a time.");
         }
     }
+
+    Console.WriteLine($"Your word was '{WordFromDictionary}' .");
 
     Console.WriteLine();
     Console.Write("Your current score is ");
@@ -479,7 +474,6 @@ $$ |  $$\ $$ |      $$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |
     else if (Score == 7) Console.WriteLine(Level7);
     else if (Score == 8) Console.WriteLine(Level8);
     else if (Score == 9) Console.WriteLine(Level9);
-    else if (Score == 10) Console.WriteLine(Level10);
     else Console.WriteLine(Level10 + Environment.NewLine + EndGame);
 }
 
