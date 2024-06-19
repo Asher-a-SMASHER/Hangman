@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 ﻿// TODO Show how many guesses are left.
+=======
+﻿// TODO show distinct letters.
+>>>>>>> Stashed changes
 // TODO Further improve dictionary
 
 string[] Dictionary = null;
@@ -70,12 +74,12 @@ do
     Console.WriteLine("Please enter your guess.");
     AddBlankSpaces(KnownChars);
 
-    while (!IsSameWord(KnownChars,WordFromDictionaryArray)  &&  AmountOfIncorrectGuesses <= 10)
+    while (!IsSameWord(KnownChars, WordFromDictionaryArray) && AmountOfIncorrectGuesses <= 10)
     {
         Console.WriteLine();
         string PlayersGuess = Console.ReadLine();
 
-        if (PlayersGuess.Length == 1)
+        if (PlayersGuess!.Length == 1)
         {
             ArrayOfGuesses.Add(PlayersGuess[0]);
             Console.Clear();
@@ -131,6 +135,12 @@ do
                 Console.WriteLine(".'");
                 Score--;
             }
+        }
+
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("You can only enter one letter at a time.");
         }
     }
 
@@ -462,7 +472,7 @@ $$ |  $$\ $$ |      $$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |
 \$$$$$$  |$$ |      \$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |  $$ |
  \______/ \__|       \______/ \__|  \__| \_______|\__|  \__| 
  ";
-    
+
     if (Score == 0) Console.WriteLine(Level0);
     else if (Score == 1) Console.WriteLine(Level1);
     else if (Score == 2) Console.WriteLine(Level2);
