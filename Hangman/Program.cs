@@ -1,13 +1,15 @@
-// TODO show distinct letters.
+// TODO Cant guess the same letter twice
 // TODO Further improve dictionary
-// TODO Remove gap between Your word was & CRUNCH
 // TODO When only 1 guess is left print Guess not Guesses
-// TODO Remove -1
+// TODO don't print "you have ... guesses left once player has won
+// TODO fix the game after repeat
+
 
 string[] Dictionary = null;
 Random random = new Random();
 List<char> ArrayOfGuesses = new List<char>();
 int AmountOfIncorrectGuesses = 0;
+string PluralOrNot = null;
 int Score = 0;
 string RepeatOrNot;
 
@@ -123,7 +125,16 @@ do
                 DisplayHangman(AmountOfIncorrectGuesses);
             }
 
-            Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guesses left.");
+            if (AmountOfIncorrectGuesses == 9)
+            {
+                PluralOrNot = " ";
+            }
+            else
+            {
+                PluralOrNot = "es ";
+            }
+
+            Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guess{PluralOrNot}left.");
 
         }
         else
@@ -134,6 +145,8 @@ do
     }
 
     Console.WriteLine($"Your word was '{WordFromDictionary}' .");
+
+    if (AmountOfIncorrectGuesses < 10) Score++; else Score--;
 
     Console.WriteLine();
     Console.Write("Your current score is ");
