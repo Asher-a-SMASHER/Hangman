@@ -1,5 +1,8 @@
+picture frame
 hospitable
 bookshelf
+air conditioner
+pencil-case
 curtain
 dictionary
 encyclopedia
@@ -18,5 +21,6 @@ talkative
 similar
 cupcake
 elements
+lightswitch
 yearning
 strangled

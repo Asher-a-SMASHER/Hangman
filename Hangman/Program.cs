@@ -1,13 +1,15 @@
-﻿
-// TODO show distinct letters.
-// TODO Repeat function.
-// TODO Only print score at the end of a game.
-// TODO Show how many guesses are left.
+// TODO Cant guess the same letter twice
+// TODO Further improve dictionary
+// TODO When only 1 guess is left print Guess not Guesses
+// TODO don't print "you have ... guesses left once player has won
+// TODO fix the game after repeat
+
 
 string[] Dictionary = null;
 Random random = new Random();
 List<char> ArrayOfGuesses = new List<char>();
 int AmountOfIncorrectGuesses = 0;
+string PluralOrNot = null;
 int Score = 0;
 string RepeatOrNot;
 
@@ -73,12 +75,12 @@ do
     Console.WriteLine("Please enter your guess.");
     AddBlankSpaces(KnownChars);
 
-    while (!IsSameWord(KnownChars,WordFromDictionaryArray)  &&  AmountOfIncorrectGuesses <= 10)
+    while (!IsSameWord(KnownChars, WordFromDictionaryArray) && AmountOfIncorrectGuesses < 10)
     {
         Console.WriteLine();
         string PlayersGuess = Console.ReadLine();
 
-        if (PlayersGuess.Length == 1)
+        if (PlayersGuess!.Length == 1)
         {
             ArrayOfGuesses.Add(PlayersGuess[0]);
             Console.Clear();
@@ -123,17 +125,32 @@ do
                 DisplayHangman(AmountOfIncorrectGuesses);
             }
 
-            if (AmountOfIncorrectGuesses == 10)
+            if (AmountOfIncorrectGuesses == 9)
             {
-                Console.Write("Your word was '");
-                Console.Write(WordFromDictionary);
-                Console.WriteLine(".'");
+                PluralOrNot = " ";
             }
-            Console.WriteLine();
-            Console.Write("Your current score is ");
-            Console.WriteLine(Score);
+            else
+            {
+                PluralOrNot = "es ";
+            }
+
+            Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guess{PluralOrNot}left.");
+
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("You can only enter one letter at a time.");
         }
     }
+
+    Console.WriteLine($"Your word was '{WordFromDictionary}' .");
+
+    if (AmountOfIncorrectGuesses < 10) Score++; else Score--;
+
+    Console.WriteLine();
+    Console.Write("Your current score is ");
+    Console.WriteLine(Score);
 
     Console.WriteLine("Would you like to play again?");
     Console.WriteLine("PLEEZ PLAY AGEN");
@@ -459,7 +476,7 @@ $$ |  $$\ $$ |      $$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |
 \$$$$$$  |$$ |      \$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |  $$ |
  \______/ \__|       \______/ \__|  \__| \_______|\__|  \__| 
  ";
-    
+
     if (Score == 0) Console.WriteLine(Level0);
     else if (Score == 1) Console.WriteLine(Level1);
     else if (Score == 2) Console.WriteLine(Level2);
@@ -470,7 +487,6 @@ $$ |  $$\ $$ |      $$ |  $$ |$$ |  $$ |$$ |      $$ |  $$ |
     else if (Score == 7) Console.WriteLine(Level7);
     else if (Score == 8) Console.WriteLine(Level8);
     else if (Score == 9) Console.WriteLine(Level9);
-    else if (Score == 10) Console.WriteLine(Level10);
     else Console.WriteLine(Level10 + Environment.NewLine + EndGame);
 }
 
