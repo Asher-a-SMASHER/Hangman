@@ -1,13 +1,12 @@
 // TODO Cant guess the same letter twice
 // TODO Further improve dictionary
-// TODO When only 1 guess is left print Guess not Guesses
 // TODO don't print "you have ... guesses left once player has won
 // TODO fix the game after repeat
 
 
 string[] Dictionary = null;
 Random random = new Random();
-List<char> ArrayOfGuesses = new List<char>();
+List<char> ListOfGuesses = new List<char>();
 int AmountOfIncorrectGuesses = 0;
 int Score = 0;
 string RepeatOrNot;
@@ -81,10 +80,20 @@ do
 
         if (PlayersGuess!.Length == 1)
         {
-            ArrayOfGuesses.Add(PlayersGuess[0]);
+
+            if (ListOfGuesses.Contains(PlayersGuess[0]))
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"You have already guessed the letter {PlayersGuess[0]}.");
+
+                continue; 
+            }
+ 
+            ListOfGuesses.Add(PlayersGuess[0]);
             Console.Clear();
             Console.WriteLine("Letters you've already guessed.");
-            AddBlankSpaces(ArrayOfGuesses);
+            AddBlankSpaces(ListOfGuesses);
 
             if (WordFromDictionary.Contains(PlayersGuess))
             {
@@ -135,6 +144,7 @@ do
         }
         else
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("You can only enter one letter at a time.");
         }
