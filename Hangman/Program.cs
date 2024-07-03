@@ -9,7 +9,6 @@ string[] Dictionary = null;
 Random random = new Random();
 List<char> ArrayOfGuesses = new List<char>();
 int AmountOfIncorrectGuesses = 0;
-string PluralOrNot = null;
 int Score = 0;
 string RepeatOrNot;
 
@@ -125,16 +124,13 @@ do
                 DisplayHangman(AmountOfIncorrectGuesses);
             }
 
-            if (AmountOfIncorrectGuesses == 9)
+            string PluralOrNot = null;
+            if (AmountOfIncorrectGuesses != 9)
             {
-                PluralOrNot = " ";
-            }
-            else
-            {
-                PluralOrNot = "es ";
+                PluralOrNot = "es";
             }
 
-            Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guess{PluralOrNot}left.");
+            Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guess{PluralOrNot} left.");
 
         }
         else
