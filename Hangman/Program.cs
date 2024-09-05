@@ -1,18 +1,24 @@
-// TODO Cant guess the same letter twice
+// highscores
+// Ask for users name
+// Create open a file
+// Store name and score
 // TODO Further improve dictionary
-// TODO don't print "you have ... guesses left once player has won
-// TODO fix the game after repeat
 
+using Hangman.Highscore;
 
-string[] Dictionary = null;
 Random random = new Random();
-List<char> ListOfGuesses = new List<char>();
-int AmountOfIncorrectGuesses = 0;
-int Score = 0;
+float Score = 0;
 string RepeatOrNot;
+
+Console.WriteLine("Please enter a UserName");
+string UserName = Console.ReadLine();
 
 do
 {
+    string[] Dictionary = null;
+    List<char> ListOfGuesses = [];
+    int AmountOfIncorrectGuesses = 0;
+
     Console.WriteLine("Choose your level of difficulty.");
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("For EASY type 'E'");
@@ -87,9 +93,9 @@ do
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"You have already guessed the letter {PlayersGuess[0]}.");
 
-                continue; 
+                continue;
             }
- 
+
             ListOfGuesses.Add(PlayersGuess[0]);
             Console.Clear();
             Console.WriteLine("Letters you've already guessed.");
@@ -116,9 +122,8 @@ do
                     WIN();
                     Score++;
 
-                    Console.Write("Your word was ");
-                    Console.Write(WordFromDictionary);
-                    Console.WriteLine();
+                    Score = Score + (WordFromDictionaryArray.Length / AmountOfIncorrectGuesses);
+
                 }
             }
 
@@ -139,8 +144,10 @@ do
                 PluralOrNot = "es";
             }
 
-            Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guess{PluralOrNot} left.");
-
+            if (!IsSameWord(KnownChars, WordFromDictionaryArray))
+            {
+                Console.WriteLine($"You have {10 - AmountOfIncorrectGuesses} guess{PluralOrNot} left.");
+            }
         }
         else
         {
@@ -157,6 +164,7 @@ do
     Console.WriteLine();
     Console.Write("Your current score is ");
     Console.WriteLine(Score);
+
 
     Console.WriteLine("Would you like to play again?");
     Console.WriteLine("PLEEZ PLAY AGEN");
