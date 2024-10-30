@@ -17,7 +17,7 @@ do
 {
     string[] Dictionary = null;
     List<char> ListOfGuesses = [];
-    int AmountOfIncorrectGuesses = 0;
+    float AmountOfIncorrectGuesses = 0;
 
     Console.WriteLine("Choose your level of difficulty.");
     Console.ForegroundColor = ConsoleColor.Green;
@@ -122,8 +122,7 @@ do
                     WIN();
                     Score++;
 
-                    Score = Score + (WordFromDictionaryArray.Length / AmountOfIncorrectGuesses);
-
+                    Score = Score + (WordFromDictionaryArray.Length / (AmountOfIncorrectGuesses + 1));
                 }
             }
 
@@ -163,8 +162,9 @@ do
 
     Console.WriteLine();
     Console.Write("Your current score is ");
-    Console.WriteLine(Score);
+    Console.WriteLine(Score.ToString("F"));
 
+    HighscoreProcessor.SaveHighScore(UserName, Score);
 
     Console.WriteLine("Would you like to play again?");
     Console.WriteLine("PLEEZ PLAY AGEN");
@@ -174,7 +174,7 @@ do
 
 } while (RepeatOrNot is "P" or "p");
 
-static void DisplayHangman(int Score)
+static void DisplayHangman(float Score)
 {
 
     var Level0 =
